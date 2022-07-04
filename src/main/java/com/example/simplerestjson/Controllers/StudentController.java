@@ -11,12 +11,19 @@ import java.util.ArrayList;
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class StudentController {
+
+    private StudentServices studentServices;
+
+    public StudentController(StudentServices studentServices) {
+        this.studentServices = studentServices;
+    }
+
     @GetMapping("/getTestStudent")
     Student getTestStudent(){
-        return (new StudentServices()).getTestStudent();
+        return null;
     }
     @GetMapping("/getAllStudents")
     ArrayList<Student> getAllStudents(){
-        return (new StudentServices()).getTestStudents();
+        return studentServices.getAllStudents();
     }
 }
